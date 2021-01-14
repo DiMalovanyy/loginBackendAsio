@@ -1,0 +1,9 @@
+#pragma once
+
+#include <string>
+
+static const char * version = @CMAKE_PROJECT_VERSION@;
+
+std::string getProjectVersion() {
+	return std::string(version);
+}

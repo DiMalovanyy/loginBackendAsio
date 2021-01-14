@@ -1,0 +1,15 @@
+#pragma once
+
+#include <string>
+
+static const char* sourcePath = @CMAKE_SOURCE_PATH@;
+static const char* binaryPath = @CMAKE_BINARY_PATH@;
+
+
+std::string getSourcePath() {
+	return std::string(sourcePath);
+}
+
+std::string getBinaryPath() {
+	return std::string(binaryPath);
+}
