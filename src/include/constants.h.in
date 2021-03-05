@@ -13,3 +13,4 @@ std::string getSourcePath() {
 std::string getBinaryPath() {
 	return std::string(binaryPath);
 }
+

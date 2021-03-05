@@ -10,10 +10,14 @@ set(SOURCES
 	main.cpp
 	)
 set(HEADERS
+	sync_http_service.h
+	fields_alloc.h
+    	http_server.h
+	request_processor.h
 	)
 
 
-add_executable(${BINARY} ${HEADERS} ${SOURCES})
+add_executable(${BINARY} ${SOURCES} ${HEADERS})
 set_target_properties(${BINARY} PROPERTIES
 	CXX_STANDARD 17
 	CXX_STANDARD_REQUIRED ON
@@ -32,3 +36,7 @@ endif()
 
 find_package(mongocxx REQUIRED)
 target_link_libraries(${BINARY} mongo::mongocxx_shared)
+target_link_libraries(${BINARY} ${CMAKE_PROJECT_NAME}_logger)
+
+target_include_directories(${BINARY} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../lib/rapidjson/include)
+target_include_directories${BINARY} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../logs)
