@@ -32,10 +32,12 @@ template< class Body, class Allocator, class Send>
 void handleRequest(beast::http::request<Body, beast::http::basic_fields<Allocator>>&& req, Send&& send) {
     spdlog::get("info_logger") -> info("The request start processing...");
     
-    RequestProcessor processor("");
-    beast::http::response<beast::http::empty_body> some = processor.getResponse<beast::http::empty_body>();
+    RequestProcessor<Body> processor(std::move(req));
     
-    send(std::move(some));
+//    RequestProcessor processor("");
+//    beast::http::response<beast::http::empty_body> some = processor.getResponse<beast::http::empty_body>();
+//
+    send(std::move(processor.getResponse()));
 }
 
 

@@ -39,4 +39,4 @@ target_link_libraries(${BINARY} mongo::mongocxx_shared)
 target_link_libraries(${BINARY} ${CMAKE_PROJECT_NAME}_logger)
 
 target_include_directories(${BINARY} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../lib/rapidjson/include)
-target_include_directories${BINARY} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../logs)
+target_include_directories(${BINARY} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../logs)
